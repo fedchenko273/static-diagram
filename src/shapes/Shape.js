@@ -19,10 +19,16 @@ function Shape({ type, coords, size, view, label }) {
         </g>
       );
 
-    case "cirlce":
+    case "circle":
       return (
         <g>
-          <circle />
+          <circle
+            cx={coords.x}
+            cy={coords.y}
+            r={size.raduis}
+            fill={view.fill}
+            stroke={view.stroke}
+          />
           <text />
         </g>
       );

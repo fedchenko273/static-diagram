@@ -21,12 +21,12 @@ Arrow.propTypes = {
     x: PropTypes.number,
     y: PropTypes.number
   }),
-  startArrow: PropTypes.shape({
-    direction: PropTypes.oneOf(["top", "left", "right", "bottom"])
-  }),
-  endArrow: PropTypes.shape({
-    direction: PropTypes.oneOf(["top", "left", "right", "bottom"])
-  }),
+  arrows: PropTypes.arrayOf(
+    PropTypes.shape({
+      position: PropTypes.oneOf(["start", "end"]),
+      direction: PropTypes.oneOf(["top", "right", "bottom", "left"])
+    })
+  ),
   breakpoints: PropTypes.arrayOf(
     PropTypes.shape({
       direction: PropTypes.oneOf(["vertical", "horizontal"]),

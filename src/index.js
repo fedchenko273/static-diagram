@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Scene from "./Scene";
+import MyDiagram from "./MyDiagram";
 
 function App() {
-  return <Scene />;
+  return <MyDiagram />;
 }
 
 const rootElement = document.getElementById("root");

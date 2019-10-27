@@ -1,8 +1,3 @@
-// from - object with properties
-// to - object with properties
-
-// properties:  position[start, end, center], direction[top, right, botton, left]
-
 export const getShift = (position, length) => {
   let shift = 0;
   switch (position) {
@@ -25,7 +20,7 @@ export const getShift = (position, length) => {
   return shift;
 };
 
-export const getPoint = (
+export const getRectPoint = (
   element = {},
   position = "center",
   direction = "top"
@@ -47,6 +42,53 @@ export const getPoint = (
 
     case "left":
       return { x, y: y + verticalShift };
+
+    default:
+      return { x, y };
+  }
+};
+
+export const getPoint = (
+  element = {},
+  position = "center",
+  direction = "top"
+) => {
+  switch (element.type) {
+    case "rect":
+      return getRectPoint(element, position, direction);
+
+    case "circle":
+      return getCirclePoint(element, position, direction);
+
+    default:
+      return getRectPoint(element, position, direction);
+  }
+};
+
+export const getCirclePoint = (
+  element = {},
+  position = "center",
+  direction = "top"
+) => {
+  const { coords: { x, y } = {}, size: { raduis } = {} } = element;
+
+  const diameter = 2 * raduis;
+
+  const horizontalShift = getShift(position, diameter);
+  const verticalShift = getShift(position, diameter);
+
+  switch (direction) {
+    case "top":
+      return { x, y: y - verticalShift };
+
+    case "right":
+      return { x: x + horizontalShift, y };
+
+    case "bottom":
+      return { x, y: y + verticalShift };
+
+    case "left":
+      return { x: x - horizontalShift, y: y };
 
     default:
       return { x, y };
