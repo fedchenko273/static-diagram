@@ -60,5 +60,17 @@ export const circle1 = {
   view: {
     fill: "white",
     stroke: "red"
-  }
+  },
+  label: 1
+};
+
+export const circle2 = {
+  type: "circle",
+  coords: { x: 300, y: 800 },
+  size: { raduis: 60 },
+  view: {
+    fill: "white",
+    stroke: "green"
+  },
+  label: 2
 };

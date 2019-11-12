@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { DEFAULT_ARROW_SIZE } from "../constants";
 
-function LinesArrow({ start, end, position, direction }) {
-  const coords = position === "start" ? start : end;
-
+function LinesArrow({ coords, direction }) {
   switch (direction) {
     case "top":
       return (

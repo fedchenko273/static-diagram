@@ -1,5 +1,11 @@
 import React from "react";
 
+const styles = {
+  text: {
+    textAnchor: "middle"
+  }
+};
+
 function Shape({ type, coords, size, view, label }) {
   switch (type) {
     case "rect":
@@ -13,7 +19,11 @@ function Shape({ type, coords, size, view, label }) {
             fill={view.fill}
             stroke={view.stroke}
           />
-          <text x={coords.x + size.width / 2} y={coords.y + size.height / 2}>
+          <text
+            style={styles.text}
+            x={coords.x + size.width / 2}
+            y={coords.y + size.height / 2}
+          >
             {label}
           </text>
         </g>
@@ -29,7 +39,13 @@ function Shape({ type, coords, size, view, label }) {
             fill={view.fill}
             stroke={view.stroke}
           />
-          <text />
+          <text
+            style={{ ...styles.text, alignmentBaseline: "middle" }}
+            x={coords.x}
+            y={coords.y}
+          >
+            {label}
+          </text>
         </g>
       );
 

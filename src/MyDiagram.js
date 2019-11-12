@@ -9,10 +9,12 @@ import {
   rect3,
   rect4,
   rect5,
-  circle1
+  circle1,
+  circle2
 } from "./geometricElements";
 
-const shapes = [rect1, rect2, rect3, rect4, rect5, circle1];
+const shapes = [rect1, rect2, rect3, rect4, rect5, circle1, circle2];
+
 const arrowFromRect2ToRect3 = getArrowCoords(
   { element: rect2, direction: "right" },
   { element: rect3, direction: "left" }
@@ -38,11 +40,14 @@ const arrowFromRect4ToCircle1 = getArrowCoords(
   { element: rect4, direction: "left" }
 );
 
-console.log({ arrowFromRect4ToCircle1 });
+const arrowFromCircle1ToCircle2 = getArrowCoords(
+  { element: circle1, direction: "bottom" },
+  { element: circle2, direction: "top" }
+);
 
 function MyDiagram() {
   return (
-    <Diagram width={800} height={800}>
+    <Diagram width={800} height={1000}>
       {shapes.map(({ coords, size, type, view, label }) => {
         return (
           <Shape
@@ -74,15 +79,33 @@ function MyDiagram() {
         start={arrowFromRect4ToRect5.start}
         end={arrowFromRect4ToRect5.end}
         breakpoints={{ position: "center", direction: "vertical" }}
-        arrows={[{ position: "start" }]}
+        arrows={[
+          { position: "start" },
+          { position: "end", direction: "bottom" }
+        ]}
       />
       <Arrow
         start={arrowFromRect4ToCircle1.start}
         end={arrowFromRect4ToCircle1.end}
         breakpoints={{ position: "center", direction: "horizontal" }}
         arrows={[
-          { position: "start", direction: "left" },
+          { position: "start", direction: "bottom" },
           { position: "end", direction: "right" }
+        ]}
+      />
+      <Arrow
+        start={arrowFromCircle1ToCircle2.start}
+        end={arrowFromCircle1ToCircle2.end}
+        breakpoints={{ position: "center", direction: "vertical" }}
+        arrows={[
+          {
+            position: "start",
+            direction: "top"
+          },
+          {
+            position: "end",
+            direction: "bottom"
+          }
         ]}
       />
     </Diagram>
