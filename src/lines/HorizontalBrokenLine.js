@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { darkGreyColor, strokeWidth } from "../constants";
 
 function HorizontalBrokenLine({ start, end, breakpoint = {} }) {
   if (breakpoint.position === "center") {
@@ -8,9 +9,9 @@ function HorizontalBrokenLine({ start, end, breakpoint = {} }) {
         d={`M ${start.x} ${start.y} L ${start.x + (end.x - start.x) / 2} ${
           start.y
         } L ${start.x + (end.x - start.x) / 2} ${end.y} L ${end.x} ${end.y} `}
-        stroke="blue"
+        stroke={darkGreyColor}
         fill="none"
-        strokeWidth={3}
+        strokeWidth={strokeWidth}
       />
     );
   }
@@ -19,9 +20,9 @@ function HorizontalBrokenLine({ start, end, breakpoint = {} }) {
     return (
       <path
         d={`M ${start.x} ${start.y} L ${end.x} ${start.y} L ${end.x} ${end.y}`}
-        stroke="red"
+        stroke={darkGreyColor}
         fill="none"
-        strokeWidth={2}
+        strokeWidth={strokeWidth}
       />
     );
   }
@@ -30,9 +31,9 @@ function HorizontalBrokenLine({ start, end, breakpoint = {} }) {
     return (
       <path
         d={`M ${start.x} ${start.y} L ${start.x} ${end.y} L ${end.x} ${end.y}`}
-        stroke="purple "
+        stroke={darkGreyColor}
         fill="none"
-        strokeWidth={2}
+        strokeWidth={strokeWidth}
       />
     );
   }
@@ -40,8 +41,8 @@ function HorizontalBrokenLine({ start, end, breakpoint = {} }) {
   return (
     <path
       d={`M ${start.x} ${start.y} L ${end.x} ${end.y} `}
-      stroke="#242424"
-      strokeWidth={3}
+      stroke={darkGreyColor}
+      strokeWidth={strokeWidth}
     />
   );
 }

@@ -48,7 +48,7 @@ const arrowFromCircle1ToCircle2 = getArrowCoords(
 function MyDiagram() {
   return (
     <Diagram width={800} height={1000}>
-      {shapes.map(({ coords, size, type, view, label }) => {
+      {shapes.map(({ coords, size, type, view, label, state }) => {
         return (
           <Shape
             type={type}
@@ -56,6 +56,7 @@ function MyDiagram() {
             size={size}
             view={view}
             label={label}
+            state={state}
           />
         );
       })}

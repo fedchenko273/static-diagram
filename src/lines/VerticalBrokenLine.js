@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { darkGreyColor, strokeWidth } from "../constants";
 
 function VerticalBrokenLine({ start, end, breakpoint = {} }) {
   if (breakpoint.position === "center") {
@@ -10,9 +11,9 @@ function VerticalBrokenLine({ start, end, breakpoint = {} }) {
         L ${end.x} ${end.y - (end.y - start.y) / 2}
         L ${end.x} ${end.y}
       `}
-        stroke="blue"
+        stroke={darkGreyColor}
         fill="none"
-        strokeWidth={3}
+        strokeWidth={strokeWidth}
       />
     );
   }
@@ -24,9 +25,9 @@ function VerticalBrokenLine({ start, end, breakpoint = {} }) {
         L ${end.x} ${start.y}
         L ${end.x} ${end.y}
       `}
-        stroke="red"
+        stroke={darkGreyColor}
         fill="none"
-        strokeWidth={2}
+        strokeWidth={strokeWidth}
       />
     );
   }
@@ -35,9 +36,9 @@ function VerticalBrokenLine({ start, end, breakpoint = {} }) {
     return (
       <path
         d={`M ${start.x} ${start.y} L ${start.x} ${end.y} L ${end.x} ${end.y}`}
-        stroke="red"
+        stroke={darkGreyColor}
         fill="none"
-        strokeWidth={2}
+        strokeWidth={strokeWidth}
       />
     );
   }
@@ -45,8 +46,8 @@ function VerticalBrokenLine({ start, end, breakpoint = {} }) {
   return (
     <path
       d={`M ${start.x} ${start.y} L ${end.x} ${end.y} `}
-      stroke="#242424"
-      strokeWidth={3}
+      stroke={darkGreyColor}
+      strokeWidth={strokeWidth}
     />
   );
 }

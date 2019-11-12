@@ -1,22 +1,19 @@
+import { DEFAULT_VIEW } from "./constants";
+
 export const rect1 = {
   type: "rect",
   coords: { x: 440, y: 280 },
   size: { width: 78, height: 66 },
-  view: {
-    fill: "white",
-    stroke: "red"
-  },
-  label: 1
+  view: DEFAULT_VIEW,
+  label: 1,
+  state: "active"
 };
 
 export const rect2 = {
   type: "rect",
   coords: { x: 20, y: 50 },
   size: { width: 120, height: 80 },
-  view: {
-    fill: "white",
-    stroke: "green"
-  },
+  view: DEFAULT_VIEW,
   label: 2
 };
 
@@ -24,21 +21,16 @@ export const rect3 = {
   type: "rect",
   coords: { x: 240, y: 120 },
   size: { height: 40, width: 80 },
-  view: {
-    fill: "white",
-    stroke: "blue"
-  },
-  label: 3
+  view: DEFAULT_VIEW,
+  label: 3,
+  state: "error"
 };
 
 export const rect4 = {
   type: "rect",
   coords: { x: 400, y: 420 },
   size: { height: 66, width: 78 },
-  view: {
-    fill: "white",
-    stroke: "purple"
-  },
+  view: DEFAULT_VIEW,
   label: 4
 };
 
@@ -46,31 +38,24 @@ export const rect5 = {
   type: "rect",
   coords: { x: 650, y: 550 },
   size: { height: 90, width: 60 },
-  view: {
-    fill: "white",
-    stroke: "black"
-  },
-  label: 5
+  view: DEFAULT_VIEW,
+  label: 5,
+  state: "error"
 };
 
 export const circle1 = {
   type: "circle",
   coords: { x: 200, y: 600 },
   size: { raduis: 40 },
-  view: {
-    fill: "white",
-    stroke: "red"
-  },
-  label: 1
+  view: DEFAULT_VIEW,
+  label: 1,
+  state: "success"
 };
 
 export const circle2 = {
   type: "circle",
   coords: { x: 300, y: 800 },
   size: { raduis: 60 },
-  view: {
-    fill: "white",
-    stroke: "green"
-  },
+  view: DEFAULT_VIEW,
   label: 2
 };

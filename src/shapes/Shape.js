@@ -1,12 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const styles = {
   text: {
-    textAnchor: "middle"
+    textAnchor: "middle",
+    alignmentBaseline: "middle"
+  },
+  active: {
+    fill: "#ccffcc",
+    stroke: ""
+  },
+  error: {
+    fill: "#ffb3b3"
+  },
+  success: {
+    fill: "#b3d9ff"
   }
 };
 
-function Shape({ type, coords, size, view, label }) {
+function Shape({ type, coords, size, view, label, state }) {
+  const stateStyle = state ? styles[state] : {};
+
   switch (type) {
     case "rect":
       return (
@@ -18,6 +32,7 @@ function Shape({ type, coords, size, view, label }) {
             height={size.height}
             fill={view.fill}
             stroke={view.stroke}
+            style={stateStyle}
           />
           <text
             style={styles.text}
@@ -38,12 +53,9 @@ function Shape({ type, coords, size, view, label }) {
             r={size.raduis}
             fill={view.fill}
             stroke={view.stroke}
+            style={stateStyle}
           />
-          <text
-            style={{ ...styles.text, alignmentBaseline: "middle" }}
-            x={coords.x}
-            y={coords.y}
-          >
+          <text style={styles.text} x={coords.x} y={coords.y}>
             {label}
           </text>
         </g>
@@ -55,3 +67,7 @@ function Shape({ type, coords, size, view, label }) {
 }
 
 export default Shape;
+
+Shape.propTypes = {
+  state: PropTypes.oneOf(["active", "error", "success", "failed"])
+};
