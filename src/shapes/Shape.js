@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { lightBlue, lightGreen, lightRed } from "../constants";
 
 const styles = {
   text: {
@@ -7,14 +8,13 @@ const styles = {
     alignmentBaseline: "middle"
   },
   active: {
-    fill: "#ccffcc",
-    stroke: ""
+    fill: lightBlue
   },
   error: {
-    fill: "#ffb3b3"
+    fill: lightRed
   },
   success: {
-    fill: "#b3d9ff"
+    fill: lightGreen
   }
 };
 
